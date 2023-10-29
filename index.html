@@ -10,7 +10,7 @@
     
     <header>
         <div class="logo">
-            <img src="canvas.png" alt="Logo Box Dados">
+            <img src="canvas.png" class="logo-site" alt="Logo Box Dados">
         </div>
     </header>
 
@@ -27,37 +27,20 @@
     <section id="login">
         <h2>Login</h2>
         <form id="login-form">
-            <label for="usuario">Usuário:</label>
-            <input type="text" id="usuario" name="usuario" required><br><br>
-    
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required><br><br>
-    
-            <input type="submit" value="Entrar">
-            <p><a href="#" id="esqueciSenhaLink">Esqueci a senha</a></p>
+            <div>
+                <label for="usuario">Usuário:</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+            <div>
+                <label for="senha">Senha:&nbsp;&nbsp;</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <hr>
+            
+            <input id="btn-entrar" type="submit" value="Entrar" class="button-3">
+            <p><a href="recuperar_senha.html">Esqueci a senha</a></p>
         </form>
-        <script>
-            document.getElementById("login-form").addEventListener("submit", function(event) {
-                event.preventDefault();
-                var usuario = document.getElementById("usuario").value;
-                var senha = document.getElementById("senha").value;
     
-                if (usuario === "admin" && senha === "1234") {
-                    window.location.href = "menu.html"; // Redireciona para a página de menu
-                } else {
-                    alert("Login ou senha incorretos. Tente novamente.");
-                }
-                
-            });
-        </script>
-        <script>
-            document.getElementById("esqueciSenhaLink").addEventListener("click", function(event) {
-                event.preventDefault();
-                window.location.href = "recuperar_senha.html";
-            });
-        </script>
-    
-        </form>
     </section>
     <!-- Fim do código do formulário de login -->
 
@@ -87,5 +70,8 @@
     <footer>
         <p>&copy; 2023 Box Dados</p>
     </footer>
+
+
+    <script src="scripts.js"></script>
 </body>
 </html>
