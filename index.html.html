@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Dados - Gestão de Recursos Humanos e Folha de Pagamento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <img src="canvas.png" alt="Logo Box Dados">
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#servicos">Nossos Serviços</a></li>
+            <li><a href="#quem-somos">Quem Somos</a></li>
+            <li><a href="#contato">Entre em Contato</a></li>
+            <li><a href="#Login">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Aqui você cola o código do formulário de login -->
+    <section id="login">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required><br><br>
+    
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required><br><br>
+    
+            <input type="submit" value="Entrar">
+            <p><a href="#" id="esqueciSenhaLink">Esqueci a senha</a></p>
+        </form>
+        <script>
+            document.getElementById("login-form").addEventListener("submit", function(event) {
+                event.preventDefault();
+                var usuario = document.getElementById("usuario").value;
+                var senha = document.getElementById("senha").value;
+    
+                if (usuario === "admin" && senha === "1234") {
+                    window.location.href = "menu.html"; // Redireciona para a página de menu
+                } else {
+                    alert("Login ou senha incorretos. Tente novamente.");
+                }
+                
+            });
+        </script>
+        <script>
+            document.getElementById("esqueciSenhaLink").addEventListener("click", function(event) {
+                event.preventDefault();
+                window.location.href = "recuperar_senha.html";
+            });
+        </script>
+    
+        </form>
+    </section>
+    <!-- Fim do código do formulário de login -->
+
+    <!-- O restante do seu código HTML existente continua aqui -->
+
+    <section id="servicos">
+        <h2>Nossos Serviços</h2>
+        <p>O DOTFOLHA é um aplicativo oferecido pela nossa empresa. Ele representa o serviço central que fornecemos para simplificar e otimizar a gestão de recursos humanos e folha de pagamento. Com o DOTFOLHA, nossa missão é fornecer uma solução completa e eficaz para facilitar o gerenciamento de tarefas críticas em sua empresa. Estamos comprometidos em ajudar você a alcançar maior eficiência e organização em sua gestão de RH e folha de pagamento. Com o DOTFOLHA, você pode cadastrar funcionários, empresas parceiras, departamentos e cargos, gerar folhas de pagamento personalizadas, agendar férias, emitir holerites, fazer consultas de cadastro e controlar o ponto dos funcionários. Essas funcionalidades proporcionam um gerenciamento eficiente e organizado de sua equipe e processos de pagamento.</p>
+    </section>
+
+    <section id="quem-somos">
+        <h2>Quem Somos</h2>
+        <p>O RH da Startup Box Dados foi o primeiro RH originado da ideia de trabalhar somente com o objetivo de promover o melhor sistema de folha de pagamentos de São Paulo.</p>
+        <p>Fundado em 14/03/2022 por colegas da faculdade, os alunos decidiram implementar a ideia de um trabalho solicitado por seu professor, cuja proposta era estudar sobre a folha de pagamento das empresas e propor melhorias aos seus sistemas antigos que muitas vezes erravam os cálculos dos holerites dos funcionários, gerando insatisfação dos trabalhadores.</p>
+        <p>Para isso, criamos o sistema de folha de pagamento chamado DOTFOLHA.</p>
+        <p>Pensando nessa insatisfação, surgiu a Box Dados, uma startup voltada totalmente aos sistemas de RH, onde a satisfação e a confiança dos analistas de recursos humanos e dos funcionários nos resultados são o princípio de qualquer decisão da empresa.</p>
+    </section>
+
+    <section id="contato">
+        <h2>Entre em Contato</h2>
+        <p>Entre em contato conosco para obter mais informações sobre nossos serviços de folha de pagamento. Estamos aqui para ajudar a simplificar suas operações financeiras.</p>
+        <p>Email: <a href="mailto:info@boxdados.com">info@boxdados.com</a></p>
+        <p>Telefone/Wathsapp: (11) 97619-7575</p>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2023 Box Dados</p>
+    </footer>
+</body>
+</html>

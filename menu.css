@@ -1,0 +1,50 @@
+/* Reset de estilos padrão do navegador */
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  
+  h1 {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 24px;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 20px;
+  }
+  
+  li {
+    margin: 10px 0;
+    background-color: #0077b6; /* Adicione o fundo azul */
+    padding: 10px 0; /* Espaçamento para as faixas azuis */
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff; /* Texto branco */
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+  }
+  
+  /* Estilo para o botão "Sair" */
+  a[href="box.html"] {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px; /* Tamanho do quadrado pequeno */
+    border-radius: 5px;
+  }
