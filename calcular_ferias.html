@@ -48,7 +48,7 @@
                         <td>0</td>
                         <td>R$ 2.000,00</td>
                         <td>
-                            <button class="btn waves-effect waves-light green accent-4" type="submit" name="action">
+                            <button data-salario="2000" class="calcularFerias btn waves-effect waves-light green accent-4" type="submit" name="action">
                                 Calcular Ferias
                                 <i class="material-icons right">attach_money</i>
                             </button>
@@ -59,7 +59,7 @@
                         <td>0</td>
                         <td>R$ 5.000,00</td>
                         <td>
-                            <button class="btn waves-effect waves-light green accent-4" type="submit" name="action">
+                            <button data-salario="5000" class="calcularFerias btn waves-effect waves-light green accent-4" type="submit" name="action">
                                 Calcular Ferias
                                 <i class="material-icons right">attach_money</i>
                             </button>
@@ -70,7 +70,7 @@
                         <td>0</td>
                         <td>R$ 8.000,00</td>
                         <td>
-                            <button class="btn waves-effect waves-light green accent-4" type="submit" name="action">
+                            <button data-salario="8000" class="calcularFerias btn waves-effect waves-light green accent-4" type="submit" name="action">
                                 Calcular Ferias
                                 <i class="material-icons right">attach_money</i>
                             </button>
@@ -81,7 +81,7 @@
                         <td>0</td>
                         <td>R$ 6.000,00</td>
                         <td>
-                            <button class="btn waves-effect waves-light green accent-4" type="submit" name="action">
+                            <button data-salario="6000" class="calcularFerias btn waves-effect waves-light green accent-4" type="submit" name="action">
                                 Calcular Ferias
                                 <i class="material-icons right">attach_money</i>
                             </button>
@@ -92,7 +92,7 @@
                         <td>0</td>
                         <td>R$ 10.000,00</td>
                         <td>
-                            <button class="btn waves-effect waves-light green accent-4" type="submit" name="action">
+                            <button data-salario="10000" class="calcularFerias btn waves-effect waves-light green accent-4" type="submit" name="action">
                                 Calcular Ferias
                                 <i class="material-icons right">attach_money</i>
                             </button>
@@ -101,12 +101,121 @@
                 </tbody>
             </table>
             <hr>
+            <div id="calcResult">
+
+            </div>
 
         </div>
     
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        
+        function InssCalc(salary) {
+
+            if(salary <= 1302) {
+                return 7.5;
+            }
+
+            if(salary <= 2571.29) {
+                return 9;
+            }
+
+            if(salary <= 3856.94) {
+                return 12;                
+            }
+
+            // if(salary <= 7507.94) {
+                
+            // }
+            return 14;
+        }
+
+        function IrrfCalc(salary) {
+
+            if(salary <= 1903.99) {
+                return 0;
+            }
+
+            if(salary <= 2826.66) {
+                return 7.5;
+            }
+
+            if(salary <= 3751.06) {
+                return 15;                
+            }
+
+            if(salary <= 4664.68) {
+                return 22.5;
+            }
+
+            return 27.5;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aguarda o DOM ser completamente carregado
+
+            // Obtém todos os elementos com a classe "calcularFerias"
+            let btnFerias = document.querySelectorAll('.calcularFerias');
+
+            // Adiciona um event listener para cada elemento encontrado
+            btnFerias.forEach(function(element) {
+                element.addEventListener('click', function() {
+                    const salario = parseFloat(element.getAttribute('data-salario'));
+                    const tercoDeFerias = salario / 3;
+                    const inssConst = InssCalc(salario);
+                    const IrrfConst = IrrfCalc(salario);
+
+                    // console.log({
+                    //     '1300': InssCalc(1300),
+                    //     '2000': InssCalc(2000),
+                    //     '3000': InssCalc(3000),
+                    //     '7000': InssCalc(7000),
+                    //     '8000': InssCalc(8000),
+                    // });
+                    // console.log({
+                    //     '1900': IrrfCalc(1900),
+                    //     '2500': IrrfCalc(2500),
+                    //     '3500': IrrfCalc(3500),
+                    //     '4200': IrrfCalc(4200),
+                    //     '5000': IrrfCalc(5000),
+                    // });
+                    console.log({
+                        salario,
+                        tercoDeFerias,
+                        inssConst,
+                        IrrfConst,
+                    });
+
+                    const tableContent = `
+                    <table class="striped highlight centered responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Salario</th>
+                                <th>1/3</th>
+                                <th>INSS</th>
+                                <th>IRRF</th>                                
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>R$ ${salario}</td>
+                                <td>R$ ${parseFloat(salario / 3).toFixed(2)}</td>
+                                <td>% ${inssConst}</td>
+                                <td>% ${IrrfConst}</td>                                
+                            </tr>
+                        </tbody>
+                    </table>
+                    `;
+
+                    document.getElementById('calcResult').innerHTML = tableContent;
+                });
+            });
+        });
+
+    </script>
    
 </body>
 
